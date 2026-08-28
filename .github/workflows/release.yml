@@ -1,0 +1,35 @@
+name: Build Release
+
+# 推送 v* 标签（如 v1.0）时自动构建并发布 Release
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Publish self-contained
+        run: dotnet publish FatCatPet.csproj -c Release -r win-x64 --self-contained true
+
+      - name: Pack zip
+        shell: powershell
+        run: |
+          Compress-Archive -Path "bin/Release/net9.0-windows/win-x64/publish/*" -DestinationPath "FatCatPet-v1.0-win-x64.zip"
+
+      - name: Upload Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: FatCatPet-v1.0-win-x64.zip
+          generate_release_notes: true

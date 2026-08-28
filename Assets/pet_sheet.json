@@ -1,0 +1,31 @@
+{
+  "image": "pet_sheet.png",
+  "frameWidth": 256,
+  "frameHeight": 198,
+  "animations": {
+    "FatCat_Click": {
+      "row": 0,
+      "frames": 9,
+      "fps": 10,
+      "loop": false
+    },
+    "FatCat_Sleep": {
+      "row": 1,
+      "frames": 25,
+      "fps": 10,
+      "loop": true
+    },
+    "FatCat_Stay": {
+      "row": 2,
+      "frames": 25,
+      "fps": 10,
+      "loop": true
+    },
+    "FatCat_Walk": {
+      "row": 3,
+      "frames": 13,
+      "fps": 12,
+      "loop": true
+    }
+  }
+}

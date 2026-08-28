@@ -1,0 +1,21 @@
+# ===== 构建产物（不入库） =====
+bin/
+obj/
+[Bb]in/
+[Oo]bj/
+
+# ===== Visual Studio =====
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ===== 发布产物（二进制走 GitHub Release，不提交到仓库） =====
+发布版/
+*.zip
+
+# ===== 系统文件 =====
+Thumbs.db
+Desktop.ini
+.DS_Store
